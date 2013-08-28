@@ -1,0 +1,11 @@
+#!/bin/bash
+# set basedir to where your code is
+# assumes you want the json in ./static/
+# run from crontab to generate updated json
+
+BASE_DIR=""
+
+cd $BASE_DIR
+$BASE_DIR/scraper.py > $BASE_DIR/releases.json
+mv $BASE_DIR/releases.json $BASE_DIR/static/releases.json
+rm -rf $BASE_DIR/releases.json
